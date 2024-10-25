@@ -9,13 +9,13 @@
 }:
 let
   pname = "backrest";
-  version = "1.5.0";
+  version = "1.6.1";
 
   src = fetchFromGitHub {
     owner = "garethgeorge";
     repo = "backrest";
     rev = "refs/tags/v${version}";
-    hash = "sha256-qxEZkRKkwKZ+EZ3y3aGcX2ioKOz19SRdi3+9mjF1LpE=";
+    hash = "sha256-qzqchnDB65i+adRxlHgWfokURA7B0bAeea0TQOZrPiY=";
   };
 
   frontend = buildNpmPackage {
@@ -23,7 +23,7 @@ let
     pname = "${pname}-webui";
     src = "${src}/webui";
 
-    npmDepsHash = "sha256-mS8G3+JuASaOkAYi+vgWztrSIIu7vfaasu+YeRJjWZw=";
+    npmDepsHash = "sha256-x0aVi2iqw1X2MrdVY2o3B4NcZOrstG7Ig07JZXGqGrg=";
 
     installPhase = ''
       runHook preInstall
@@ -36,7 +36,7 @@ in
 buildGoModule {
   inherit pname src version;
 
-  vendorHash = "sha256-YukcHnXa/QimfX3nDtQI6yfPkEK9j5SPXOPIT++eWsU=";
+  vendorHash = "sha256-GQ75ZiiETgyVaSGAlgs8JQJLpLiriAzMa8kyDCk86Gc=";
 
   preBuild = ''
     mkdir -p ./webui/dist
